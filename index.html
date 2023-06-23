@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="CSS/reset.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="Images/Encrypter.svg" />
+    <title>Encriptador de texto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <script
+      src="https://kit.fontawesome.com/c63eeaa42d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1><img src="Images/LogoAlura.svg" alt="LogoAlura" /></h1>
+    </header>
+    <main>
+      <section class="input">
+        <textarea
+          name="inputText"
+          id="inputText"
+          autocomplete="off"
+          autofocus
+          placeholder="Ingrese el texto aqui"
+          cols="70"
+          rows="10"
+        ></textarea>
+        <div>
+          <p>Solo letras minúsculas y sin acentos</p>
+          <div class="inputButtons">
+            <button class="inputButtonsEncrypt" onclick="encrypt()">
+              Encriptar
+            </button>
+            <button
+              class="inputButtonsDecrypt outlinedButton"
+              onclick="decrypt()"
+            >
+              Desencriptar
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="output none" id="output">
+        <div class="outputNoneinfo" id="noneinfo">
+          <canvas id="noneTextAnimation" width="250" height="250"></canvas>
+          <div class="outputNoneText">
+            <p>Ningún mensaje fue encontrado</p>
+            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+          </div>
+        </div>
+        <div class="outputResult" id="result">
+          <p class="outputResultText" id="resultText"></p>
+
+          <button
+            id="copyButton"
+            class="outputResultCopy outlinedButton"
+            onclick="copyToClipboard()"
+          >
+            Copiar
+          </button>
+          <button class="outputResultPaste" onclick="pasteFromClipboard()">
+            Pegar
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy;2023 Diseño por Jose para Challenge - Alura ONE</p>
+      <a href="http://github.com/Hageend" target="_blank" id="github"
+        ><i class="fa-brands fa-github"></i
+      ></a>
+    </footer>
+    <script src="https://unpkg.com/@rive-app/canvas@1.0.102"></script>
+    <script>
+      new rive.Rive({
+        src: "Images/nonfile.riv",
+        canvas: document.getElementById("noneTextAnimation"),
+        autoplay: true,
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
